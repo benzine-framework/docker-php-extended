@@ -1,0 +1,10 @@
+FROM gone/php:cli
+
+RUN mkdir /composer
+ENV COMPOSER_HOME=/composer
+
+RUN composer global require \
+        squizlabs/php_codesniffer \
+    && composer --version
+
+ENTRYPOINT ["/composer/vendor/bin/phpcs"]
