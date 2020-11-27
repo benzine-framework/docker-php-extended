@@ -3,10 +3,8 @@ FROM gone/php:cli
 RUN mkdir /composer
 ENV COMPOSER_HOME=/composer
 
-ENV VERSION=0.12.57
-
 RUN composer global require \
-        phpstan/phpstan=$VERSION \
+        phpstan/phpstan\
         phpstan/extension-installer \
         phpstan/phpstan-doctrine \
         phpstan/phpstan-phpunit \
