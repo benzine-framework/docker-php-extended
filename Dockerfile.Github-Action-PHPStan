@@ -16,3 +16,6 @@ RUN composer global require \
         phpstan/phpstan-webmozart-assert \
     && composer global show "*phpstan*" \
     && composer --version
+
+ADD github-actions/phpstan.sh /phpstan.sh
+ENTRYPOINT ["/phpstan.sh"]
