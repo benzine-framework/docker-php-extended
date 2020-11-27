@@ -1,0 +1,32 @@
+name: PHP on x86_64
+
+on:
+  push:
+  schedule:
+    - cron: '0 7 * * TUE'
+
+jobs:
+  lint:
+    name: Lint Dockerfiles
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Lint docker files
+        uses: docker://cdssnc/docker-lint
+
+  github-actions-phpstan:
+    name: Github Actions => PHPStan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+            username: ${{ secrets.DOCKER_HUB_USERNAME }}
+            password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      - name: Build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: gone/github-actions:phpstan
+          file: Dockerfile.Github-Action-PHPStan

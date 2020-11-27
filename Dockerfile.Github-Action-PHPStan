@@ -1,0 +1,18 @@
+FROM gone/php:cli
+
+RUN mkdir /composer
+ENV COMPOSER_HOME=/composer
+
+ENV VERSION=0.12.57
+
+RUN composer global require \
+        phpstan/phpstan=$VERSION \
+        phpstan/extension-installer \
+        phpstan/phpstan-doctrine \
+        phpstan/phpstan-phpunit \
+        phpstan/phpstan-nette \
+        phpstan/phpstan-symfony \
+        phpstan/phpstan-mockery \
+        phpstan/phpstan-webmozart-assert \
+    && composer global show "*phpstan*" \
+    && composer --version
