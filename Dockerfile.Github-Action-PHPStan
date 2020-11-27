@@ -17,5 +17,5 @@ RUN composer global require \
     && composer global show "*phpstan*" \
     && composer --version
 
-ADD github-actions/phpstan.sh /phpstan.sh
+COPY github-actions/phpstan.sh /phpstan.sh
 ENTRYPOINT ["/phpstan.sh"]
