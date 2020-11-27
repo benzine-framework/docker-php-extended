@@ -1,8 +1,0 @@
-name: Lint dockerfiles
-
-on:
-  push:
-  schedule:
-    - cron: '0 4 * * TUE'
-
-jobs:

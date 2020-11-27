@@ -1,4 +1,4 @@
-name: PHP on x86_64
+name: Build Extended Images
 
 on:
   push:
