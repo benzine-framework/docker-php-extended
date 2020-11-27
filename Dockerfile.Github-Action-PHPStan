@@ -16,4 +16,5 @@ RUN composer global require \
     && composer --version
 
 COPY github-actions/phpstan.sh /phpstan.sh
+RUN chmod +x /phpstan.sh
 ENTRYPOINT ["/phpstan.sh"]
