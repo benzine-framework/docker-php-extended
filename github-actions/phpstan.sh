@@ -17,7 +17,7 @@ if [ "$REQUIRE_DEV" = "true" ]; then
 fi
 
 COMPOSER_COMMAND="composer install --no-scripts --no-progress $NO_DEV $IGNORE_PLATFORM_REQS"
-echo "::group::$COMPOSER_COMMAND"
+echo "::group::Composer - $COMPOSER_COMMAND"
 $COMPOSER_COMMAND
 echo "::endgroup::"
 /composer/vendor/bin/phpstan $*
